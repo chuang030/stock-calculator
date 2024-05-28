@@ -1,0 +1,4 @@
+{
+    "yahooApiAddress" : "https://query1.finance.yahoo.com/v8/finance/chart/",
+    "corsAnywhereAddress" : "https://cors-anywhere.herokuapp.com/"
+}

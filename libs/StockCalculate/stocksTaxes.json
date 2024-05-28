@@ -1,0 +1,54 @@
+{
+    "commonStocks": {
+        "typeName": [
+            "Common Stocks",
+            "common stocks",
+            "CommonStocks",
+            "commonstocks",
+            "CS",
+            "cs",
+            "0",
+            "普通",
+            0
+        ],
+        "typeRate": 3
+    },
+    "dayTrading": {
+        "typeName": [
+            "Day-Trading",
+            "day-trading",
+            "Day Trading",
+            "day trading",
+            "DayTrading",
+            "daytrading",
+            "Dt",
+            "dt",
+            "1",
+            "當沖",
+            1
+        ],
+        "typeRate": 1.5
+    },
+    "exchangeTradedFunds": {
+        "typeName": [
+            "Exchange Traded Funds",
+            "exchange traded funds",
+            "ExchangeTradedFunds",
+            "exchangetradedfunds",
+            "ETF",
+            "etf",
+            "2",
+            2
+        ],
+        "typeRate": 1
+    },
+    "warrant": {
+        "typeName": [
+            "Warrant",
+            "warrant",
+            "3",
+            3
+        ],
+        "typeRate": 1
+    }
+}

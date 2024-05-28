@@ -1,0 +1,226 @@
+$themeColor          : rgb(243, 65, 155);
+$themeRemoveColor    : rgb(200, 200, 200);
+$themeColorLight     : rgb(255, 181, 206);
+$themeColorDark      : rgb(226, 5, 111);
+$themeColorBtnActive : rgb(255, 71, 131);
+$themeBorderColor    : rgba(210, 210, 210, 1);
+$themeBorderStyle    : $themeBorderColor 1px solid;
+$themeBorderRadius   : 5px;
+$themeScreenSmall    : 320px;
+$themeScreenmMedium  : 768px;
+$themeScreenmLarge   : 1200px;
+$contentWidth        : 720px;
+
+@mixin theme-btn-style {
+    margin       : 0.2em;
+    padding      : 0.2em;
+    min-width    : 120px;
+    border       : rgba(160, 160, 160, 255) 1px solid;
+    border-radius: 5px;
+    font-weight  : bold;
+    text-align   : center;
+    text-shadow  :
+        -0.75px -0.75px 0 white,
+        0.75px -0.75px 0 white,
+        -0.75px 0.75px 0 white,
+        0.75px 0.75px 0 white,
+        2px 2px 2px white,
+    ;
+    background: linear-gradient(rgba(255, 255, 255, 1) 50%, rgba(242, 242, 242, 1) 52%, rgba(222, 222, 222, 1) 54%);
+    box-shadow: 1px 1px 2px rgb(156, 156, 156);
+}
+
+@mixin theme-btn-style-active {
+    margin       : 0.2em;
+    padding      : 0.2em;
+    min-width    : 120px;
+    border       : $themeColorDark 1px solid;
+    border-radius: $themeBorderRadius;
+    font-weight  : bold;
+    text-align   : center;
+    text-shadow  :
+        -0.75px -0.75px 0 $themeColorDark,
+        0.75px -0.75px 0 $themeColorDark,
+        -0.75px 0.75px 0 $themeColorDark,
+        0.75px 0.75px 0 $themeColorDark,
+        2px 2px 2px $themeColorDark,
+    ;
+    color     : white;
+    background: linear-gradient($themeColorLight 50%, rgba(242, 242, 242, 1) 52%, $themeColorBtnActive 54%);
+    box-shadow: 1px 1px 2px rgb(156, 156, 156);
+}
+
+@mixin theme-box-style {
+    margin       : 0.2em;
+    padding      : 0.2em;
+    min-width    : 120px;
+    border       : $themeBorderStyle;
+    border-radius: $themeBorderRadius;
+    text-shadow  :
+        -0.75px -0.75px 0 white,
+        0.75px -0.75px 0 white,
+        -0.75px 0.75px 0 white,
+        0.75px 0.75px 0 white,
+        2px 2px 2px white,
+    ;
+    background-color: white;
+}
+
+@mixin theme-checkbox-style {
+    width           : 3em;
+    height          : 1.5em;
+    background-color: white;
+    border          : $themeBorderStyle;
+    border-radius   : 25px;
+    display         : flex;
+    align-items     : center;
+    
+    &::before {
+        content         : "";
+        margin-left     : 4px;
+        width           : 1em;
+        height          : 1em;
+        display         : block;
+        // background-color: white;
+        background-color: $themeColorLight;
+        border-radius   : 100%;
+        transition      : all ease 250ms;
+    }
+    
+    &:checked {
+        background-color: $themeColorLight;
+
+
+        &::before {
+            content         : "";
+            transform       : translateX(calc(1em + 3px));
+            // background-color: $themeColorBtnActive;
+            background-color: white;
+            transition      : all ease 250ms;
+        }
+    }
+}
+
+@mixin theme-box-display {
+    padding        : 5px;
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: flex-start;
+    align-items    : center;
+}
+
+@mixin theme-not-show-animation {
+    max-height: 0;
+    transform : scale(0);
+}
+
+@mixin theme-show-animation {
+    transition: all 50ms ease;
+    max-height: none;
+    transform : scale(1);
+}
+
+body {
+    position             : relative;
+    height               : 100vh;
+    background           : url(/src/images/bg/bgPattern.webp);
+    background-attachment: fixed;
+
+    &::-webkit-scrollbar {
+        width: 0.25em;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $themeColor;
+    }
+
+    .wrapper {
+        display        : flex;
+        flex-wrap      : wrap;
+        justify-content: center;
+
+        .top-box {
+            @include theme-box-display;
+            margin-top               : 0.2em;
+            width                    : 90%;
+            max-width                : 310px;
+            background-color         : white;
+            border-radius            : 25px;
+            border-top-left-radius   : 90px;
+            border-bottom-left-radius: 90px;
+            border                   : $themeBorderStyle;
+            position                 : fixed;
+            top                      : 0%;
+            right                    : 40px;
+            justify-content          : flex-end;
+            z-index                  : 10;
+        }
+
+        .content {
+            margin-top: 40px;
+            width     : 90%;
+            max-width : $contentWidth;
+        }
+
+        @media only screen and (min-width: $themeScreenmMedium) {
+            .top-box {
+                display: none;
+            }
+
+            .content {
+                margin-top: 0;
+            }
+        }
+
+        // @media only screen and (min-width: $themeScreenmLarge) {
+        //     .content {
+        //         margin-top: 0;
+        //     }
+        // }
+    }
+}
+
+.app {
+    max-width      : 625px;
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: center;
+    overflow       : hidden;
+}
+
+select,
+input {
+
+    &:focus {
+        outline-color: $themeColor;
+    }
+}
+
+.theme-style-box {
+    @include theme-box-style;
+}
+
+.fixed-box {
+    @include theme-box-display;
+    position       : fixed;
+    top            : 0;
+    left           : 0;
+    justify-content: center;
+    width          : 100%;
+    height         : 100vh;
+}
+
+.active-background {
+    width           : 100%;
+    height          : 100vh;
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition      : all 200ms ease;
+    z-index         : -1;
+}
