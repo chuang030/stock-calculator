@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "name": "元大證券",
+            "buyDiscount": 6,
+            "boardLotBaseCharge": 20,
+            "oddLottBaseCharge": 1
+        },
+        {
+            "name": "國泰證券",
+            "buyDiscount": 2.8,
+            "boardLotBaseCharge": 1,
+            "oddLottBaseCharge": 1
+        },
+        {
+            "name": "凱基證券",
+            "buyDiscount": 6,
+            "boardLotBaseCharge": 20,
+            "oddLottBaseCharge": 1
+        },
+        {
+            "name": "永豐金證券",
+            "buyDiscount": 6.5,
+            "boardLotBaseCharge": 1,
+            "oddLottBaseCharge": 1
+        },
+        {
+            "name": "新光證券",
+            "buyDiscount": 2.8,
+            "boardLotBaseCharge": 20,
+            "oddLottBaseCharge": 1
+        },
+        {
+            "name": "台新證券",
+            "buyDiscount": 2.8,
+            "boardLotBaseCharge": 20,
+            "oddLottBaseCharge": 1
+        }
+    ]
+}

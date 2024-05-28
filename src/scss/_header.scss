@@ -1,0 +1,188 @@
+header {
+    position: relative;
+
+    .nav-open-btn {
+        @include theme-btn-style;
+        margin-right   : 0.4em;
+        position       : fixed;
+        top            : 0%;
+        right          : 0%;
+        min-width      : 30px;
+        max-width      : 30px;
+        height         : 30px;
+        padding        : 0.4em;
+        color          : $themeColor;
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        cursor         : pointer;
+        z-index        : 1;
+    }
+
+    .nav-bar {
+        width          : 100%;
+        position       : fixed;
+        top            : 30%;
+        left           : 0%;
+        display        : flex;
+        justify-content: center;
+        transform      : scale(0);
+        transition     : all 200ms ease;
+        z-index        : 10;
+
+        nav {
+            max-width       : 414px;
+            margin          : 0.5em;
+            padding         : 0.5em;
+            border          : $themeBorderColor 1px solid;
+            box-shadow      : 1px 1px 2px rgb(156, 156, 156);
+            border-radius   : 5px;
+            background-color: white;
+            display         : flex;
+            flex-wrap       : wrap;
+            justify-content : center;
+            position        : relative;
+
+            .nav-title {
+                width        : 100%;
+                margin       : 0 2em;
+                border-bottom: $themeColor 1px solid;
+
+                p {
+                    font-weight: bold;
+                }
+            }
+
+            span {
+                position: absolute;
+                left    : 20px;
+                top     : 10px;
+
+                img {
+                    max-width: 20px;
+                }
+            }
+
+            ul {
+                margin-top     : 0.5em;
+                display        : flex;
+                flex-wrap      : wrap;
+                justify-content: center;
+
+                li {
+                    a {
+                        @include theme-btn-style;
+                        display : inline-block;
+                        position: relative;
+
+                        span {
+                            position: absolute;
+                            left    : 3px;
+                            top     : 1.5px;
+
+                            img {
+                                max-width: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $themeScreenmMedium) {
+
+    #app {
+        position: relative;
+
+        header {
+            position       : static;
+            top            : 0;
+            display        : flex;
+            justify-content: center;
+
+            .nav-open-btn {
+                display: none;
+            }
+
+            .nav-bar {
+                width          : 90%;
+                max-width      : $contentWidth;
+                margin-top     : 5px;
+                transform      : scale(1);
+                position       : static;
+                justify-content: flex-start;
+                z-index        : 100;
+
+                nav {
+                    margin    : 0.2em;
+                    width     : 100%;
+                    max-width : $contentWidth;
+                    box-shadow: none;
+
+                    ul {
+                        margin-top     : 20px;
+                        width          : 100%;
+                        display        : flex;
+                        justify-content: space-around;
+
+                        li {
+                            width: calc(100% / 5);
+
+                            a {
+                                width     : 100%;
+                                border    : none;
+                                box-shadow: none;
+                            }
+
+                            &:hover {
+                                animation: li-hover 0.9s both;
+                            }
+                        }
+
+                        li.active {
+                            a {
+                                background: linear-gradient(white 50%, rgba(242, 242, 242, 1) 52%, $themeColorLight 54%);
+                            }
+                        }
+
+                        @keyframes li-hover {
+                            0% {
+                                transform: scale3d(1, 1, 1);
+                            }
+
+                            30% {
+                                transform: scale3d(0.75, 1.25, 1);
+                            }
+
+                            40% {
+                                transform: scale3d(1.25, 0.75, 1);
+                            }
+
+                            50% {
+                                transform: scale3d(0.85, 1.15, 1);
+                            }
+
+                            65% {
+                                transform: scale3d(1.05, 0.95, 1);
+                            }
+
+                            75% {
+                                transform: scale3d(0.95, 1.05, 1);
+                            }
+
+                            100% {
+                                transform: scale3d(1, 1, 1);
+                            }
+                        }
+
+                        li[id="nav-close-btn"] {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

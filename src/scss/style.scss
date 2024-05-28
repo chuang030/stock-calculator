@@ -1,0 +1,23 @@
+@import "reset", "themeStyle", "header", "topBoxStyle", "contentBoxStyle", "footerStyle";
+
+@media only screen and (min-width: $themeScreenSmall) {
+
+    body {
+
+        .wrapper {
+
+            .top-box {
+                @include top-box-calculation-style;
+            }
+
+            .content {
+
+                @include content-calculation-style;
+                
+                footer{
+                    @include footer-calculation-style;
+                }
+            }
+        }
+    }
+}
