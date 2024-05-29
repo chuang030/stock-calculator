@@ -7,7 +7,7 @@ import SellBox from './SellBox.vue';
 import DiscountAndTypeBox from './DiscountAndTypeBox.vue';
 import DetailBox from './DetailBox.vue';
 
-import { StocksMoreCalculate } from '../../../libs/StockCalculate/main'
+import { StocksMoreCalculate } from '../../../../libs/StockCalculate/main'
 
 const emit = defineEmits(["resultUpdate"])
 
@@ -103,25 +103,23 @@ const stockTypeUpdate = (data) => {
 </script>
 
 <template>
-    <div id="content" class="content">
-        <SettingBox
-            @modelUpdate="settingBoxUpdate"
-            @otherUpdate="otherUpdate"
-            @stocksDataUpdate="stocksDataUpdate" />
-        <SttingInstruction :isShow="modelBox.sttingInstructionIsShow" />
-        <BuyBox @update="buyBoxUpdate" />
-        <SellBox 
-            @update="sellBoxUpdate"
-            :marketCosts="calculationData.marketCosts" />
-        <DiscountAndTypeBox 
-            :modelBox="modelBox"
-            :buyDiscount="calculationData.buyDiscount"
-            :boardLotBaseCharge="calculationData.boardLotBaseCharge"
-            :oddLottBaseCharge="calculationData.oddLottBaseCharge"
-            :stockType="calculationData.stockType"
-            @discountUpdate="discountUpdate"
-            @stockTypeUpdate="stockTypeUpdate"
-        />
-        <DetailBox :data="calculationData"/>
-    </div>
+    <SettingBox
+        @modelUpdate="settingBoxUpdate"
+        @otherUpdate="otherUpdate"
+        @stocksDataUpdate="stocksDataUpdate" />
+    <SttingInstruction :isShow="modelBox.sttingInstructionIsShow" />
+    <BuyBox @update="buyBoxUpdate" />
+    <SellBox 
+        @update="sellBoxUpdate"
+        :marketCosts="calculationData.marketCosts" />
+    <DiscountAndTypeBox 
+        :modelBox="modelBox"
+        :buyDiscount="calculationData.buyDiscount"
+        :boardLotBaseCharge="calculationData.boardLotBaseCharge"
+        :oddLottBaseCharge="calculationData.oddLottBaseCharge"
+        :stockType="calculationData.stockType"
+        @discountUpdate="discountUpdate"
+        @stockTypeUpdate="stockTypeUpdate"
+    />
+    <DetailBox :data="calculationData"/>
 </template>

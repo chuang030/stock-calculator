@@ -74,29 +74,29 @@ $contentWidth        : 720px;
     border-radius   : 25px;
     display         : flex;
     align-items     : center;
-    
+
     &::before {
-        content         : "";
-        margin-left     : 4px;
-        width           : 1em;
-        height          : 1em;
-        display         : block;
+        content            : "";
+        margin-left        : 4px;
+        width              : 1em;
+        height             : 1em;
+        display            : block;
         // background-color: white;
-        background-color: $themeColorLight;
-        border-radius   : 100%;
-        transition      : all ease 250ms;
+        background-color   : $themeColorLight;
+        border-radius      : 100%;
+        transition         : all ease 250ms;
     }
-    
+
     &:checked {
         background-color: $themeColorLight;
 
 
         &::before {
-            content         : "";
-            transform       : translateX(calc(1em + 3px));
+            content            : "";
+            transform          : translateX(calc(1em + 3px));
             // background-color: $themeColorBtnActive;
-            background-color: white;
-            transition      : all ease 250ms;
+            background-color   : white;
+            transition         : all ease 250ms;
         }
     }
 }
@@ -125,6 +125,8 @@ body {
     height               : 100vh;
     background           : url(/src/images/bg/bgPattern.webp);
     background-attachment: fixed;
+    overflow-x: hidden;
+
 
     &::-webkit-scrollbar {
         width: 0.25em;
@@ -164,6 +166,7 @@ body {
             margin-top: 40px;
             width     : 90%;
             max-width : $contentWidth;
+            position: relative;
         }
 
         @media only screen and (min-width: $themeScreenmMedium) {

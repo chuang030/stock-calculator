@@ -31,7 +31,7 @@ header {
         z-index        : 10;
 
         nav {
-            max-width       : 414px;
+            max-width       : 395px;
             margin          : 0.5em;
             padding         : 0.5em;
             border          : $themeBorderColor 1px solid;
@@ -89,6 +89,23 @@ header {
             }
         }
     }
+
+    .nav-bar.nav-open-btn{
+        width: 100%;
+    }
+
+    .nav-bar.nav-open {
+        transform: scale(1);
+        z-index: 110;
+    }
+
+}
+
+.active-background.active {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
 @media only screen and (min-width: $themeScreenmMedium) {
@@ -137,7 +154,7 @@ header {
                             }
 
                             &:hover {
-                                animation: li-hover 0.9s both;
+                                animation: li-hover 0.5s both;
                             }
                         }
 
@@ -183,6 +200,10 @@ header {
                     }
                 }
             }
+        }
+
+        .active-background.active {
+            display: none;
         }
     }
 }

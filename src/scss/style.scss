@@ -11,7 +11,9 @@
             }
 
             .content {
-
+                
+                @include content-position;
+                // @include content-change;
                 @include content-calculation-style;
                 
                 footer{

@@ -3,7 +3,7 @@ import { ref, reactive, watchEffect } from 'vue';
 import { 
     yahooApiAddress as stocksApiAddress,
     corsAnywhereAddress
-} from '../../data/ApiData.json'
+} from '../../../data/ApiData.json'
 
 const prop = defineProps({
     corsAnywhereStatus:  {
