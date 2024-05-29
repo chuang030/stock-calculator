@@ -15,6 +15,9 @@
                 @include content-position;
                 // @include content-change;
                 @include content-calculation-style;
+                @include content-notes-style;
+                @include content-inventory-style;
+                @include content-directions-style;
                 
                 footer{
                     @include footer-calculation-style;

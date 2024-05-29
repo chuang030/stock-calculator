@@ -161,6 +161,11 @@ header {
                         li.active {
                             a {
                                 background: linear-gradient(white 50%, rgba(242, 242, 242, 1) 52%, $themeColorLight 54%);
+                                cursor: default;
+                            }
+
+                            &:hover {
+                                animation: none;
                             }
                         }
 
