@@ -96,20 +96,26 @@
 
 @mixin content-position {
     .sub-content {
-        position  : absolute;
-        top       : 0;
+        width: 100%;
+        flex: 1 0 auto;
         transition: all 200ms ease;
     }
 
-    #stock-calculator-content {
-        left: 0;
-    }
+    // #stock-calculator-content {
 
-    #notes-content,
-    #inventory-content,
-    #directions-content {
-        left: calc(100% * 1);
-    }
+    // }
+
+    // #notes-content {
+
+    // }
+
+    // #inventory-content {
+        
+    // }
+
+    // #directions-content {
+
+    // }
 }
 
 @mixin content-calculation-style {

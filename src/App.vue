@@ -34,11 +34,11 @@ const contentUpdate = (data) => {
   select.value = data
 }
 
-const contentChange = (left, right, opacity) => {
-  StockCalculatorContentBox.value.style = `left: calc(100% * (${left[0]}));right: calc(100% * (${right[0]}));opacity:${opacity[0]}`
-  NotesContentBox.value.style           = `left: calc(100% * (${left[1]}));right: calc(100% * (${right[1]}));opacity:${opacity[1]}`
-  InventoryContentBox.value.style       = `left: calc(100% * (${left[2]}));right: calc(100% * (${right[2]}));opacity:${opacity[2]}`
-  DirectionsContentBox.value.style      = `left: calc(100% * (${left[3]}));right: calc(100% * (${right[3]}));opacity:${opacity[3]}`
+const contentChange = (x, opacity) => {
+  StockCalculatorContentBox.value.style = `transform: translateX(calc(100% * ${x[0]}));opacity:${opacity[0]}`
+  NotesContentBox.value.style           = `transform: translateX(calc(100% * ${x[1]}));opacity:${opacity[1]}`
+  InventoryContentBox.value.style       = `transform: translateX(calc(100% * ${x[2]}));opacity:${opacity[2]}`
+  DirectionsContentBox.value.style      = `transform: translateX(calc(100% * ${x[3]}));opacity:${opacity[3]}`
 }
 
 watchEffect(() => {
@@ -46,16 +46,16 @@ watchEffect(() => {
     case contentValue[0]:
       if (StockCalculatorContentBox.value === undefined) 
         break
-      contentChange([0, 1, 1, 1], [0, -1, -1, -1], [1, 0, 0, 0])
+      contentChange([0, 0, 0, 0], [1, 0, 0, 0])
       break 
     case contentValue[1]: 
-      contentChange([-1, 0, 1, 1], [1, 0, -1, -1], [0, 1, 0, 0])
+      contentChange([-1, -1, 0, 0], [0, 1, 0, 0])
       break
-    case contentValue[2]: 
-      contentChange([-1, -1, 0, 1], [1, 1, 0, -1], [0, 0, 1, 0])
+    case contentValue[2]:
+      contentChange([-1, -2, -2, 0], [0, 0, 1, 0])
     break
-    case contentValue[3]: 
-      contentChange([-1, -1, -1, 0], [1, 1, 1, 0], [0, 0, 0, 1])
+    case contentValue[3]:
+      contentChange([-1, -2, -3, -3], [0, 0, 0, 1])
     break
   }
 })
@@ -65,6 +65,7 @@ watchEffect(() => {
 <template>
   <HeaderBox @contentUpdate="contentUpdate"/>
   <div class="wrapper">
+    <TopBox :calculationResult="calculationResult" />
     <div id="content" class="content">
       <div id="stock-calculator-content" class="sub-content" ref="StockCalculatorContentBox">
         <StockCalculatorContent @resultUpdate="resultUpdate" />
@@ -79,6 +80,5 @@ watchEffect(() => {
         <DirectionsContent/>
       </div>
     </div>
-    <TopBox :calculationResult="calculationResult" />
   </div>
 </template>

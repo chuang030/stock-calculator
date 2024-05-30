@@ -90,22 +90,33 @@ header {
         }
     }
 
-    .nav-bar.nav-open-btn{
+    .nav-bar.nav-open-btn {
         width: 100%;
     }
 
     .nav-bar.nav-open {
         transform: scale(1);
-        z-index: 110;
+        z-index  : 110;
     }
 
 }
 
+.active-background {
+    width           : 100%;
+    height          : 100vh;
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition      : all 200ms ease;
+    z-index         : -1;
+}
+
 .active-background.active {
-    width: 100%;
-    height: 100vh;
+    width           : 100%;
+    height          : 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 100;
+    z-index         : 100;
 }
 
 @media only screen and (min-width: $themeScreenmMedium) {
@@ -161,7 +172,7 @@ header {
                         li.active {
                             a {
                                 background: linear-gradient(white 50%, rgba(242, 242, 242, 1) 52%, $themeColorLight 54%);
-                                cursor: default;
+                                cursor    : default;
                             }
 
                             &:hover {
